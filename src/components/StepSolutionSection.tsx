@@ -10,130 +10,106 @@ const StepSolutionSection: FC = () => {
         
         <div className="glass-card p-8">
           <div className="space-y-10">
+          <div>
+              <h3 className="text-xl font-medium mb-4 flex items-center">
+                <span className="inline-flex h-7 w-7 mr-2 items-center justify-center rounded-full bg-primary/20 text-primary font-medium">P.1</span>
+                Modelo
+              </h3>
+              <div className="p-4 border border-primary/20 bg-primary/5 rounded-lg">
+            <h3 className="text-lg font-medium mb-2">Datos:</h3>
+            <ul className="space-y-2 list-disc list-inside">
+              <li>El crecimiento es proporcional a la cantidad actual de bacterias</li>
+              <li>Cuando <MathFormula formula="t = 3" /> horas: <MathFormula formula="P(3) = 400" /> bacterias</li>
+              <li>Cuando <MathFormula formula="t = 10" /> horas: <MathFormula formula="P(10) = 2000" /> bacterias</li>
+              <li>Se busca: <MathFormula formula="P(0)" /> (población inicial) ?</li>
+            </ul>
+          </div>
+              
+            </div>
+
             <div>
               <h3 className="text-xl font-medium mb-4 flex items-center">
-                <span className="inline-flex h-7 w-7 mr-2 items-center justify-center rounded-full bg-primary/20 text-primary font-medium">1</span>
-                Separación de Variables
+                <span className="inline-flex h-7 w-7 mr-2 items-center justify-center rounded-full bg-primary/20 text-primary font-medium">P.2</span>
+                Solucion del problema
               </h3>
               <p className="mb-4">
+              Separación de Variables
                 Partimos de nuestra ecuación diferencial y separamos las variables:
               </p>
+              haremos separacion de variables.
               <MathFormula 
-                formula="\frac{dP}{dt} = kP" 
+                formula="\frac{dP}{dt} = kP -> \frac{dP}{P} = k \, dt" 
+                block={true} 
+              />teniendo la ecuacion de esta manera paso siguiente es integrar.
+              <br />
+               sabemos que la integral de dP sobre p es Ln
+               <br />
+               despues de esto aplicamos e a ambos lados de la aplicacion para el Ln
+              <MathFormula 
+                formula="\int \frac{dP}{P} \, dP = k \int  dt , -> \ln(P) = k t + C, -> e^{Ln(p)} = e^{kt + c}" 
                 block={true} 
               />
               <MathFormula 
-                formula="\frac{dP}{P} = k \, dt" 
+                formula="p(t) =  e^{kt} .  e^{c} {c}  -> p(t) =  c.  e^{kt}"  
+                block={true} 
+              />
+
+              <MathFormula 
+                formula="400 =  ce^{k(3)} ->  c = \frac{400}{e^{3k}} "  
                 block={true} 
               />
               <MathFormula 
-                formula="\int \frac{1}{P} \, dP = \int k \, dt" 
+                formula="2000 =  ce^{k(10)} ->  c = \frac{2000}{e^{10k}}"  
                 block={true} 
               />
-            </div>
-            
-            <div>
-              <h3 className="text-xl font-medium mb-4 flex items-center">
-                <span className="inline-flex h-7 w-7 mr-2 items-center justify-center rounded-full bg-primary/20 text-primary font-medium">2</span>
-                Integración
-              </h3>
-              <p className="mb-4">
-                Integramos ambos lados de la ecuación:
-              </p>
+
               <MathFormula 
-                formula="\ln|P| = kt + C_1" 
-                block={true} 
-              />
-              <p className="mb-2">
-                Aplicando exponencial a ambos lados:
-              </p>
-              <MathFormula 
-                formula="P = e^{kt + C_1} = e^{C_1} \cdot e^{kt} = C \cdot e^{kt}" 
-                block={true} 
-              />
-              <p className="text-sm text-muted-foreground mt-2">
-                Donde <MathFormula formula="C = e^{C_1}" /> es una nueva constante.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="text-xl font-medium mb-4 flex items-center">
-                <span className="inline-flex h-7 w-7 mr-2 items-center justify-center rounded-full bg-primary/20 text-primary font-medium">3</span>
-                Aplicación de Condiciones Iniciales
-              </h3>
-              <p className="mb-4">
-                Usamos las condiciones dadas en el problema:
-              </p>
-              
-              <div className="space-y-4">
-                <div className="p-3 bg-scientificBlue-500/10 rounded-md">
-                  <p className="mb-1">Para <MathFormula formula="t = 3" />, <MathFormula formula="P = 400" />:</p>
-                  <MathFormula 
-                    formula="400 = C \cdot e^{3k}" 
-                    block={true} 
-                  />
-                </div>
-                
-                <div className="p-3 bg-scientificBlue-500/10 rounded-md">
-                  <p className="mb-1">Para <MathFormula formula="t = 10" />, <MathFormula formula="P = 2000" />:</p>
-                  <MathFormula 
-                    formula="2000 = C \cdot e^{10k}" 
-                    block={true} 
-                  />
-                </div>
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="text-xl font-medium mb-4 flex items-center">
-                <span className="inline-flex h-7 w-7 mr-2 items-center justify-center rounded-full bg-primary/20 text-primary font-medium">4</span>
-                Resolución del Sistema
-              </h3>
-              <p className="mb-4">
-                Dividimos la segunda ecuación entre la primera:
-              </p>
-              <MathFormula 
-                formula="\frac{2000}{400} = \frac{C \cdot e^{10k}}{C \cdot e^{3k}}" 
+                formula="\frac{400}{e^{3k}} = \frac{200}{e^{10k}}"  
                 block={true} 
               />
               <MathFormula 
-                formula="5 = e^{7k}" 
+                formula="\frac{e^{10k}}{e^{3k}} = \frac{2000}{400}"  
                 block={true} 
               />
-              <p className="mb-2">
-                Aplicando logaritmo natural a ambos lados:
-              </p>
+
               <MathFormula 
-                formula="\ln(5) = 7k" 
+                formula="e^{7k}= 5 -> Lne^{7k} = Ln(5) -> 7k = Ln(5) -> k= \frac{Ln(5)}{7} = k= 0.23"  
                 block={true} 
               />
               <MathFormula 
-                formula="k = \frac{\ln(5)}{7} \approx 0.23" 
+                formula=" c = \frac{400}{e^{3(0.23)}} -> c=200.63"  
+                block={true} 
+              />
+              <MathFormula 
+                formula="P(t) = 200.63 e^{0.23t} " 
+                block={true} 
+              />
+              Reemplazamos t=0  para saber cuantas bacterias habia inicialmemte en el cultivo.
+              <MathFormula 
+                formula="P(0) = 200.63 e^{0} - >{0}" 
+                block={true} 
+              />
+              <MathFormula 
+                formula="P(0) = 200.63" 
+                block={true} 
+              />
+              <MathFormula 
+                formula="P(0) = 200 \text{ bacterias}" 
                 block={true} 
               />
             </div>
             
             <div>
               <h3 className="text-xl font-medium mb-4 flex items-center">
-                <span className="inline-flex h-7 w-7 mr-2 items-center justify-center rounded-full bg-primary/20 text-primary font-medium">5</span>
+                <span className="inline-flex h-7 w-7 mr-2 items-center justify-center rounded-full bg-primary/20 text-primary font-medium">P3</span>
                 Cálculo de la Población Inicial
               </h3>
-              <p className="mb-4">
-                Ahora despejamos <MathFormula formula="C" /> usando el valor de <MathFormula formula="k" />:
-              </p>
-              <MathFormula 
-                formula="400 = C \cdot e^{3 \cdot 0.23}" 
-                block={true} 
-              />
-              <MathFormula 
-                formula="C = \frac{400}{e^{3 \cdot 0.23}} \approx \frac{400}{1.99} \approx 200.65" 
-                block={true} 
-              />
+              
               <p className="mb-4">
                 Por lo tanto, la población inicial (cuando <MathFormula formula="t = 0" />) es:
               </p>
               <MathFormula 
-                formula="P(0) = C \cdot e^{0} = C \approx 201 \text{ bacterias}" 
+                formula="P(0) \approx 200 \text{ bacterias}" 
                 block={true} 
               />
               <div className="mt-6 p-4 bg-primary/10 rounded-lg">

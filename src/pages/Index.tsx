@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 import CoverSection from "@/components/CoverSection";
 import ProblemSection from "@/components/ProblemSection";
-import ModelingSection from "@/components/ModelingSection";
 import StepSolutionSection from "@/components/StepSolutionSection";
 import ChartSection from "@/components/ChartSection";
-import ConclusionSection from "@/components/ConclusionSection";
 import ThankYouSection from "@/components/ThankYouSection";
 import Header from "@/components/Header";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -68,13 +66,11 @@ const Index = () => {
         </div>
       </div>
       
-      <main className="space-y-4 transition-all duration-500">
+      <main className=" transition-all duration-500">
         <CoverSection />
         <ProblemSection />
-        <ModelingSection />
         <StepSolutionSection />
         <ChartSection />
-        <ConclusionSection />
         <ThankYouSection />
       </main>
       

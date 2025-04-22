@@ -13,14 +13,14 @@ const ChartSection: FC = () => {
           <div className="space-y-6">
             <p className="text-lg leading-relaxed">
               El siguiente gráfico muestra el crecimiento exponencial de la población bacteriana según el modelo 
-              <MathFormula formula="P(t) = 201 \cdot e^{0.23t}" />. Puedes ajustar los parámetros para ver cómo 
+              <MathFormula formula="P(t) = 200 " />. Ajustar los parámetros para ver cómo 
               cambia la curva de crecimiento.
             </p>
             
             <div className="p-4 bg-scientificBlue-500/5 rounded-lg border border-scientificBlue-500/20">
               <h3 className="text-lg font-medium mb-3">Puntos clave:</h3>
               <ul className="list-disc list-inside space-y-2">
-                <li>Población inicial (<MathFormula formula="t = 0" />): <MathFormula formula="P \approx 201" /> bacterias</li>
+                <li>Población inicial (<MathFormula formula="t = 0" />): <MathFormula formula="P \approx 200" /> bacterias</li>
                 <li>A las 3 horas (<MathFormula formula="t = 3" />): <MathFormula formula="P = 400" /> bacterias</li>
                 <li>A las 10 horas (<MathFormula formula="t = 10" />): <MathFormula formula="P = 2000" /> bacterias</li>
               </ul>
